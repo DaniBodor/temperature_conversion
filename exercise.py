@@ -1,3 +1,6 @@
+def celsius_to_fahrenheit(celsius):
+    return (celsius * (9 / 5)) + 32
+
 def convert_temperature(temperature, unit):
     if unit == "F":
         # Convert Fahrenheit to Celsius
@@ -12,7 +15,7 @@ def convert_temperature(temperature, unit):
                 # Invalid temperature, below absolute zero
                 return "Invalid temperature"
             else:
-                fahrenheit = (celsius * (9 / 5)) + 32
+                fahrenheit = celsius_to_fahrenheit(celsius)
                 if fahrenheit < -459.67:
                     # Invalid temperature, below absolute zero
                     return "Invalid temperature"
@@ -20,7 +23,7 @@ def convert_temperature(temperature, unit):
                     return celsius, kelvin
     elif unit == "C":
         # Convert Celsius to Fahrenheit
-        fahrenheit = (temperature * (9 / 5)) + 32
+        fahrenheit = celsius_to_fahrenheit(temperature)
         if fahrenheit < -459.67:
             # Invalid temperature, below absolute zero
             return "Invalid temperature"
@@ -40,7 +43,7 @@ def convert_temperature(temperature, unit):
             return "Invalid temperature"
         else:
             # Convert Celsius to Fahrenheit
-            fahrenheit = (celsius * (9 / 5)) + 32
+            fahrenheit = celsius_to_fahrenheit(celsius)
             if fahrenheit < -459.67:
                 # Invalid temperature, below absolute zero
                 return "Invalid temperature"
