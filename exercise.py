@@ -1,6 +1,15 @@
 def celsius_to_fahrenheit(celsius):
     return (celsius * (9 / 5)) + 32
 
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * (5 / 9)
+
+def celsius_to_kelvin(celsius):
+    return celsius + 273.15
+
+def kelvin_to_celsius(kelvin):
+    return kelvin - 273.15
+
 def check_temperature_validity(temperature, unit):
     abs_zero = {"C": -273.15,
                 "F": -459.67,
@@ -20,22 +29,15 @@ def convert_temperature(temperature, unit):
     if not check_temperature_validity(temperature, unit):
         return "Invalid temperature"
     if unit == "F":
-        # Convert Fahrenheit to Celsius
-        celsius = (temperature - 32) * (5 / 9)
-        # Convert Celsius to Kelvin
-        kelvin = celsius + 273.15
-        fahrenheit = celsius_to_fahrenheit(celsius)
+        celsius = fahrenheit_to_celsius(temperature)
+        kelvin = celsius_to_kelvin(celsius)
         return celsius, kelvin
     elif unit == "C":
-        # Convert Celsius to Fahrenheit
         fahrenheit = celsius_to_fahrenheit(temperature)
-        # Convert Celsius to Kelvin
-        kelvin = temperature + 273.15
+        kelvin = celsius_to_kelvin(temperature)
         return fahrenheit, kelvin
     elif unit == "K":
-        # Convert Kelvin to Celsius
-        celsius = temperature - 273.15
-        # Convert Celsius to Fahrenheit
+        celsius = kelvin_to_celsius(temperature)
         fahrenheit = celsius_to_fahrenheit(celsius)
         return celsius, fahrenheit
 
